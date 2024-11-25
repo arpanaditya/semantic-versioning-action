@@ -20,8 +20,12 @@ async function calculateNewVersion(octokit, repo, commits) {
     commits.forEach(commit => {
         const message = commit.commit.message;
 
+        // If it's a 'feat!:' commit, bump the major version
+        if (message.startsWith('feat!:')) {
+            currentVersion = semver.inc(currentVersion, 'major');
+        }
         // If it's a 'feat:' commit, bump the minor version
-        if (message.startsWith('feat:')) {
+        else if (message.startsWith('feat:')) {
             currentVersion = semver.inc(currentVersion, 'minor');
         }
         // If it's a 'fix:' commit, bump the patch version
@@ -38,4 +42,5 @@ module.exports = { calculateNewVersion };
 
 // Bumping major with "feat!:" commit
 // Bumping minor with "feat:" commit
+// Bumping patch with "fix:" commit
 // Bumping patch with "fix:" commit
