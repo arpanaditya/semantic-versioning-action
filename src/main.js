@@ -34,9 +34,15 @@ async function run() {
         if (tags.some((tag) => tag.name === newVersion)) {
             console.log(`Tag ${newVersion} already exists. Deleting and recreating the tag.`);
 
-            // Deleting the existing tag via Git CLI
-            await execPromise(`git tag -d ${newVersion}`);
-            await execPromise(`git push --delete origin ${newVersion}`);
+            // Check if the tag exists locally before trying to delete it
+            try {
+                await execPromise(`git rev-parse ${newVersion}`); // Check if the tag exists locally
+                await execPromise(`git tag -d ${newVersion}`);
+                await execPromise(`git push --delete origin ${newVersion}`);
+                console.log(`Deleted tag ${newVersion} locally and from the remote.`);
+            } catch (err) {
+                console.log(`Tag ${newVersion} does not exist locally, skipping deletion.`);
+            }
         }
 
         // Create a new tag using Octokit API
