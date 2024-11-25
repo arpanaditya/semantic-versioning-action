@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install Dependencies
+        run: npm install
+        working-directory: ./
+
       - name: Run Semantic Release Action
         uses: ./ # Use local action for testing; replace with your action's repository path when publishing.
         with:
