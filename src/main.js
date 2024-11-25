@@ -1,6 +1,8 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
+const { exec } = require("child_process");
 const { calculateNewVersion } = require("./semantic_versioning");
+const { stderr } = require("process");
 
 async function run() {
     try {
@@ -62,6 +64,19 @@ async function run() {
     } catch (error) {
         core.setFailed(`Action failed with error: ${error.message}`);
     }
+}
+
+// Utility function to run Git commands asynchronously
+function execPromise(command) {
+    return new Promose((resolve, reject) => {
+        exec(command, (error, stdout, stderr) => {
+            if (error) {
+                reject(`exec error: ${error}`);
+            } else {
+                resolve(stdout ? stdout : stderr);
+            }
+        });
+    });
 }
 
 run();
