@@ -31,13 +31,11 @@ async function run() {
         // If you want to overwrite existing tags, you can skip the check here and create a new tag
         // Otherwise, use the condition below to skip tag creation if the tag already exists
         if (tags.some((tag) => tag.name === newVersion)) {
-            // Force delete the existing tag (if you want to overwrite it)
-            await octokit.rest.git.deleteTag({
-                owner: repo.owner,
-                repo: repo.repo,
-                tag: newVersion,
-            });
-        }
+            console.log(`Tag ${newVersion} already exists. Deleting and recreating the tag.`);
+
+            // Deleting the existing tag via Git CLI
+            await execPromise(`git tag -d ${newVersion}`);
+            await execPromise(`git push --delete origin ${newVersion}`);
 
         // Create a new tag
         const tagResponse = await octokit.rest.git.createTag({
