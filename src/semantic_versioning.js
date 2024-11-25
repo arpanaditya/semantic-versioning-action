@@ -33,7 +33,7 @@ async function calculateNewVersion(octokit, repo, commits) {
     return currentVersion;
 }
 
-module.ex
+module.exports = { calculateNewVersion };
 
 
 // Bumping major with "feat!:" commit
