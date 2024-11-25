@@ -10,7 +10,7 @@ async function run() {
         const { context } = github;
         const repo = context.repo;
 
-        // Fetch commits
+        // Fetch commits to calculate the new version
         const { data: commits } = await octokit.rest.repos.listCommits({
             owner: repo.owner,
             repo: repo.repo,
@@ -19,7 +19,19 @@ async function run() {
         // Calculate new version
         const newVersion = calculateNewVersion(commits);
 
-        // Create a tag and release
+        // Check if the tag already exists
+        const { data: tags } = await octokit.rest.git.listTags({
+            owner: repo.owner,
+            repo: repo.repo,
+        });
+
+        // If the tag already exists, skip creation and exit
+        if (tags.some(tag => tag.name === newVersion)) {
+            core.info(`Tag ${newVersion} already exists. Skipping tag and release creation.`);
+            return;  // Exit the function without proceeding further
+        }
+
+        // Create a new tag
         const tagResponse = await octokit.rest.git.createTag({
             owner: repo.owner,
             repo: repo.repo,
@@ -29,6 +41,7 @@ async function run() {
             type: "commit",
         });
 
+        // Create a new release
         await octokit.rest.repos.createRelease({
             owner: repo.owner,
             repo: repo.repo,
@@ -38,7 +51,7 @@ async function run() {
         });
 
         core.setOutput("tag_name", newVersion);
-        console.log(`created tag and release: ${newVersion}`);
+        console.log(`Created tag and release: ${newVersion}`);
     } catch (error) {
         core.setFailed(`Action failed with error: ${error.message}`);
     }
