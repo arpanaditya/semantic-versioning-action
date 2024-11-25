@@ -18,7 +18,10 @@ jobs:
         with:
           node-version: 18
 
-      - name: Run Semantic Release Action
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Use my custom GitHub Action
         uses: ./ # Use the local action
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
