@@ -44,3 +44,6 @@ module.exports = { calculateNewVersion };
 // Bumping minor with "feat:" commit
 // Bumping patch with "fix:" commit
 // Bumping patch with "fix:" commit
+
+// Trying again
+// Bumping major with "feat!:" commit
