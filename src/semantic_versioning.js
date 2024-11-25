@@ -1,27 +1,40 @@
-function calculateNewVersion(commits) {
-    let major = 1,
-        minor = 0,
-        patch = 0;
+const semver = require('semver');  // Import semver package to handle versioning
 
-    commits.forEach((commit) => {
-        const message = commit.commit.message;
-
-        if (message.includes("feat!:")) {
-            major++;
-            minor = 0;
-            patch = 0;
-        } else if (message.startsWith("feat:")) {
-            minor++;
-            patch = 0;
-        } else if (message.startsWith("fix:")) {
-            patch++;
-        }
+async function getCurrentVersion(octokit, repo) {
+    // Fetch tags from the repository
+    const { data: tags } = await octokit.rest.repos.listTags({
+        owner: repo.owner,
+        repo: repo.repo,
     });
-    
-    return `v${major}.${minor}.${patch}`;
+
+    // Get the most recent tag or fallback to v0.0.0 if no tags are present
+    const latestTag = tags[0] ? tags[0].name : "v0.0.0";
+    return latestTag;
 }
 
-module.exports = { calculateNewVersion };
+async function calculateNewVersion(octokit, repo, commits) {
+    // Get the current version from the latest tag
+    let currentVersion = await getCurrentVersion(octokit, repo);
+
+    // Iterate over commits and adjust the version based on the commit message
+    commits.forEach(commit => {
+        const message = commit.commit.message;
+
+        // If it's a 'feat:' commit, bump the minor version
+        if (message.startsWith('feat:')) {
+            currentVersion = semver.inc(currentVersion, 'minor');
+        }
+        // If it's a 'fix:' commit, bump the patch version
+        else if (message.startsWith('fix:')) {
+            currentVersion = semver.inc(currentVersion, 'patch');
+        }
+    });
+
+    return currentVersion;
+}
+
+module.ex
+
 
 // Bumping major with "feat!:" commit
 // Bumping minor with "feat:" commit

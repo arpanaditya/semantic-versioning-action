@@ -16,10 +16,10 @@ async function run() {
             repo: repo.repo,
         });
 
-        // Calculate new version
-        const newVersion = calculateNewVersion(commits);
+        // Calculate new version based on the commits
+        const newVersion = await calculateNewVersion(octokit, repo, commits);
 
-        // Check if the tag already exists
+        // Check if the tag already exists by listing the tags
         const { data: tags } = await octokit.rest.repos.listTags({
             owner: repo.owner,
             repo: repo.repo,
