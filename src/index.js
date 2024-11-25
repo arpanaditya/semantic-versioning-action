@@ -48,3 +48,4 @@ run();
 
 // bumping major
 // feat!: new feature
+// feat: new feature
