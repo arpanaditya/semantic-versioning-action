@@ -2,7 +2,6 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 const { exec } = require("child_process");
 const { calculateNewVersion } = require("./semantic_versioning");
-const { stderr } = require("process");
 
 async function run() {
     try {
@@ -20,6 +19,7 @@ async function run() {
 
         // Calculate new version based on the commits
         const newVersion = await calculateNewVersion(octokit, repo, commits);
+        console.log(`Calculated new version: ${newVersion}`);
 
         // Check if the tag already exists by listing the tags
         const { data: tags } = await octokit.rest.repos.listTags({
@@ -30,8 +30,7 @@ async function run() {
         // Log existing tags for debugging purposes
         console.log(`Existing tags: ${tags.map((tag) => tag.name).join(", ")}`);
 
-        // If you want to overwrite existing tags, you can skip the check here and create a new tag
-        // Otherwise, use the condition below to skip tag creation if the tag already exists
+        // If the tag already exists, delete it and recreate
         if (tags.some((tag) => tag.name === newVersion)) {
             console.log(`Tag ${newVersion} already exists. Deleting and recreating the tag.`);
 
@@ -40,7 +39,7 @@ async function run() {
             await execPromise(`git push --delete origin ${newVersion}`);
         }
 
-        // Create a new tag
+        // Create a new tag using Octokit API
         const tagResponse = await octokit.rest.git.createTag({
             owner: repo.owner,
             repo: repo.repo,
@@ -50,8 +49,11 @@ async function run() {
             type: "commit",
         });
 
+        // Log the tag creation response
+        console.log(`Created tag response:`, tagResponse);
+
         // Create a new release
-        await octokit.rest.repos.createRelease({
+        const releaseResponse = await octokit.rest.repos.createRelease({
             owner: repo.owner,
             repo: repo.repo,
             tag_name: newVersion,
@@ -59,9 +61,13 @@ async function run() {
             body: `Version ${newVersion} is now available`,
         });
 
+        // Log the release creation response
+        console.log(`Created release response:`, releaseResponse);
+
         core.setOutput("tag_name", newVersion);
         console.log(`Created tag and release: ${newVersion}`);
     } catch (error) {
+        console.log("Error details:", error);  // Detailed error logging
         core.setFailed(`Action failed with error: ${error.message}`);
     }
 }
@@ -71,7 +77,7 @@ function execPromise(command) {
     return new Promise((resolve, reject) => {
         exec(command, (error, stdout, stderr) => {
             if (error) {
-                reject(`exec error: ${error}`);
+                reject(`exec error: ${error}, stderr: ${stderr}`);
             } else {
                 resolve(stdout ? stdout : stderr);
             }
