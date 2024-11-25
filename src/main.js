@@ -68,7 +68,7 @@ async function run() {
 
 // Utility function to run Git commands asynchronously
 function execPromise(command) {
-    return new Promose((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         exec(command, (error, stdout, stderr) => {
             if (error) {
                 reject(`exec error: ${error}`);
