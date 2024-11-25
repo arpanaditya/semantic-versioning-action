@@ -1,0 +1,13 @@
+name: "Semantic Versioning and Release Action"
+description: "Creates tags and releases based on semantic commit messages"
+author: "Aditya Arpan Sahoo"
+inputs:
+  github_token:
+    description: "GitHub token to authenticate requests"
+    required: true
+outputs:
+  tag_name:
+    description: "The created tag name"
+runs:
+  using: "node12"
+  main: "src/main.js"

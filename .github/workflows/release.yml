@@ -1,0 +1,24 @@
+name: "Release Workflow"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Run Semantic Release Action
+        uses: ./ # Use the local action
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
