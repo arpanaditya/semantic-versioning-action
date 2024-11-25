@@ -23,4 +23,5 @@ function calculateNewVersion(commits) {
 
 module.exports = { calculateNewVersion };
 
+// Bumping major with "feat!:" commit
 // Bumping minor with "feat:" commit
