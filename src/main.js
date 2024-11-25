@@ -36,6 +36,7 @@ async function run() {
             // Deleting the existing tag via Git CLI
             await execPromise(`git tag -d ${newVersion}`);
             await execPromise(`git push --delete origin ${newVersion}`);
+        }
 
         // Create a new tag
         const tagResponse = await octokit.rest.git.createTag({
