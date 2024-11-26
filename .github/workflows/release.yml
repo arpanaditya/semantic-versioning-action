@@ -41,17 +41,3 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provide the GitHub token for authentication
-
-# triggering patch release
-# triggering another patch release
-# triggering minor release
-# triggering another minor release
-# triggering major release (failed)
-# triggering another major release (failed)
-# triggering another major release (failed)
-# triggering another major release (successful)
-# triggering another major release 
-
-# making patch changes on dev branch (successful)
-# making minor changes on dev branch (successful)
-# making major changes on dev branch 
