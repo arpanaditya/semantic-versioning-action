@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v1.1.0...v1.2.0) (2024-11-26)
+
+
+### Features
+
+* another minor release ([9415de3](https://github.com/arpanaditya/semantic-versioning-action/commit/9415de327f8084499c31b51a02647f39cfa6d0d7))
+
 # [1.1.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v1.0.2...v1.1.0) (2024-11-26)
 
 
