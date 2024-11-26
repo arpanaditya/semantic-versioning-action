@@ -47,4 +47,5 @@ jobs:
 # triggering minor release
 # triggering another minor release
 # triggering major release (failed)
+# triggering another major release (failed)
 # triggering another major release
