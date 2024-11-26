@@ -1,3 +1,13 @@
+# [4.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v3.1.0...v4.0.0) (2024-11-26)
+
+
+* feat!: major update from dev BREAKING CHANGE: major update from dev ([fac5eec](https://github.com/arpanaditya/semantic-versioning-action/commit/fac5eec5533c1fe3432f96986403efcfadbc79ae))
+
+
+### BREAKING CHANGES
+
+* major update from dev
+
 # [3.1.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v3.0.1...v3.1.0) (2024-11-26)
 
 
