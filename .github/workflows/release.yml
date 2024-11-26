@@ -53,4 +53,5 @@ jobs:
 # triggering another major release 
 
 # making patch changes on dev branch (successful)
-# making minor changes on dev branch
+# making minor changes on dev branch (successful)
+# making major changes on dev branch 
