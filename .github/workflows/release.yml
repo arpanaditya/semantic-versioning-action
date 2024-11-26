@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16" # Use the Node.js version required for your project
+          node-version: "18" # Use the Node.js version required for your project
 
       # Step 3: Cache Node.js modules to speed up future builds
       - name: Cache Node.js modules
