@@ -1,27 +1,22 @@
-name: Create Release
+name: Release
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
-
     permissions:
-        contents: write
-        deployments: write
-
+      contents: write
+      pull-requests: write
+      issues: write
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install Dependencies
-        run: npm install
-        working-directory: ./
-
-      - name: Run Semantic Release Action
-        uses: ./ # Use local action for testing; replace with your action's repository path when publishing.
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          node-version: 16
+      - run: npm ci
+      - run: npm run build
+      - run: npm semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

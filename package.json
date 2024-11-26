@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.0",
-    "semver": "^7.6.3"
+  "devDependencies": {
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.1",
+    "semantic-release": "^24.2.0"
   }
 }

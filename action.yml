@@ -1,9 +1,0 @@
-name: 'Semantic Release Action'
-description: 'Reads semantic commit messages to create tags and releases.'
-inputs:
-  github_token:
-    description: 'GitHub token to authenticate API requests.'
-    required: true
-runs:
-  using: 'node12'
-  main: 'src/index.js'
