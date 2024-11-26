@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/arpanaditya/semantic-versioning-action/compare/v1.0.0...v1.0.1) (2024-11-26)
+
+
+### Bug Fixes
+
+* **release:** patch release ([5ba7a68](https://github.com/arpanaditya/semantic-versioning-action/commit/5ba7a68b72bbaba802de27391b8af47faea43f88))
+
 # 1.0.0 (2024-11-26)
 
 
