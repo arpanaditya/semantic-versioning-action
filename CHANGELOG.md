@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v1.3.0...v2.0.0) (2024-11-26)
+
+
+* feat!: breaking change through major update ([f1dfd5e](https://github.com/arpanaditya/semantic-versioning-action/commit/f1dfd5eb07cac9ff6fa4fab4f75ff51e7269aff0))
+
+
+### BREAKING CHANGES
+
+* triggering another breaking change through major update.
+
 # [1.3.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v1.2.0...v1.3.0) (2024-11-26)
 
 
