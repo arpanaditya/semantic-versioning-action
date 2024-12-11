@@ -38,6 +38,7 @@ jobs:
 
       # Step 5: Run semantic-release
       - name: Run Semantic Release
-        run: npx semantic-release
+        run: |
+          npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provide the GitHub token for authentication
