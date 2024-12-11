@@ -1,3 +1,13 @@
+# [8.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v7.0.0...v8.0.0) (2024-12-11)
+
+
+* feat!: bumping major ([3beb7eb](https://github.com/arpanaditya/semantic-versioning-action/commit/3beb7eb5a28ac3111a680e0c31fd8206e6e43464))
+
+
+### BREAKING CHANGES
+
+* bumping major test
+
 # [7.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v6.0.0...v7.0.0) (2024-12-11)
 
 
