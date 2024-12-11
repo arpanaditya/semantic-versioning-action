@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v4.0.0...v5.0.0) (2024-12-11)
+
+
+### Features
+
+* bumping major ([cb31a66](https://github.com/arpanaditya/semantic-versioning-action/commit/cb31a66b78f8cf5dca1fe4542bf0c4c4cc135635))
+
+
+### BREAKING CHANGES
+
+* new feature added
+
 # [4.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v3.1.0...v4.0.0) (2024-11-26)
 
 
