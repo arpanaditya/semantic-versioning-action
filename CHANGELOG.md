@@ -1,3 +1,15 @@
+# [9.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v8.2.1...v9.0.0) (2024-12-11)
+
+
+### Bug Fixes
+
+* bump major ([529cd86](https://github.com/arpanaditya/semantic-versioning-action/commit/529cd865612f4821043973bd5ccb2349202ce69d))
+
+
+### BREAKING CHANGES
+
+* bump major test
+
 ## [8.2.1](https://github.com/arpanaditya/semantic-versioning-action/compare/v8.2.0...v8.2.1) (2024-12-11)
 
 
