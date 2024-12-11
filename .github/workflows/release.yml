@@ -38,21 +38,6 @@ jobs:
 
       # Step 5: Run semantic-release
       - name: Run Semantic Release
-        run: |
-            if [ -z "$GITHUB_TOKEN" ]; then
-              echo "No GitHub token found in environment, using local token from .env file!"
-              export GITHUB_TOKEN=$(cat .env | grep GITHUB_TOKEN | cut -d '=' -f2)
-            fi
-            npx semantic-release
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provide the GitHub token for authentication
-
-# Triggering a major change by "feat!"
-# Triggering a major change by "feat! and BREAKING CHANGE: "
-# Triggering a major change by "feat! and BREAKING CHANGE: "
-# Triggering a major change by "feat! and BREAKING CHANGE: "
-# Triggering a major change by "feat! and BREAKING CHANGE: "
-# Triggering a major change by "feat! and BREAKING CHANGE: "
-# Triggering a major change by "feat! and BREAKING CHANGE: "
-# Triggering a major change by "feat and BREAKING CHANGE: "
-# Triggering a major change by "feat!"
