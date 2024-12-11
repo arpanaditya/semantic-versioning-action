@@ -1,3 +1,15 @@
+# [7.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v6.0.0...v7.0.0) (2024-12-11)
+
+
+### Features
+
+* bumping major through breaking change ([ed4d73a](https://github.com/arpanaditya/semantic-versioning-action/commit/ed4d73a8cbb4be4fcdce13cfe8a77777e056f87c))
+
+
+### BREAKING CHANGES
+
+* new feature added from command line
+
 # [6.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v5.0.0...v6.0.0) (2024-12-11)
 
 
