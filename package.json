@@ -46,54 +46,6 @@
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ]
-    ],
-    "commitAnalyzer": {
-      "releaseRules": [
-        {
-          "type": "feat",
-          "release": "minor"
-        },
-        {
-          "type": "fix",
-          "release": "patch"
-        },
-        {
-          "type": "docs",
-          "release": "patch"
-        },
-        {
-          "type": "chore",
-          "release": "patch"
-        },
-        {
-          "type": "style",
-          "release": "patch"
-        },
-        {
-          "type": "refactor",
-          "release": "patch"
-        },
-        {
-          "type": "perf",
-          "release": "minor"
-        },
-        {
-          "type": "test",
-          "release": "patch"
-        },
-        {
-          "type": "build",
-          "release": "patch"
-        },
-        {
-          "type": "ci",
-          "release": "patch"
-        },
-        {
-          "type": "infra",
-          "release": "patch"
-        }
-      ]
-    }
+    ]
   }
 }
