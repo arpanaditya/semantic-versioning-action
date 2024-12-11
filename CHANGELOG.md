@@ -1,3 +1,13 @@
+# [6.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v5.0.0...v6.0.0) (2024-12-11)
+
+
+* feat!: bumping major ([37dacd3](https://github.com/arpanaditya/semantic-versioning-action/commit/37dacd33db9c153835a9e0d9821ccdd9b4be20df))
+
+
+### BREAKING CHANGES
+
+* new feature added from command line
+
 # [5.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v4.0.0...v5.0.0) (2024-12-11)
 
 
