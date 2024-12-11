@@ -22,7 +22,69 @@
       "main"
     ],
     "plugins": [
-      "@semantic-release/commit-analyzer",
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "feat",
+              "scope": "*",
+              "release": "major"
+            },
+            {
+              "type": "fix",
+              "scope": "*",
+              "release": "minor"
+            },
+            {
+              "type": "chore",
+              "scope": "*",
+              "release": "patch"
+            },
+            {
+              "type": "docs",
+              "scope": "*",
+              "release": "patch"
+            },
+            {
+              "type": "style",
+              "scope": "*",
+              "release": "patch"
+            },
+            {
+              "type": "refactor",
+              "scope": "*",
+              "release": "patch"
+            },
+            {
+              "type": "perf",
+              "scope": "*",
+              "release": "patch"
+            },
+            {
+              "type": "test",
+              "scope": "*",
+              "release": "patch"
+            },
+            {
+              "type": "build",
+              "scope": "*",
+              "release": "patch"
+            },
+            {
+              "type": "ci",
+              "scope": "*",
+              "release": "patch"
+            },
+            {
+              "type": "infra",
+              "scope": "*",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       [
