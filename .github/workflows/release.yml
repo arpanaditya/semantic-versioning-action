@@ -41,5 +41,3 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provide the GitHub token for authentication
-
-# Triggering major release with "feat!" and "BREAKING CHANGE"
