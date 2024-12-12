@@ -1,3 +1,10 @@
+## [9.0.1](https://github.com/arpanaditya/semantic-versioning-action/compare/v9.0.0...v9.0.1) (2024-12-12)
+
+
+### Bug Fixes
+
+* remove unnecessary pull-requests permission from release workflow ([b632701](https://github.com/arpanaditya/semantic-versioning-action/commit/b632701c395bd9f50495670a82d2bf1077d315ad))
+
 # [9.0.0](https://github.com/arpanaditya/semantic-versioning-action/compare/v8.2.1...v9.0.0) (2024-12-11)
 
 
